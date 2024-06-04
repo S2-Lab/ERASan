@@ -1,0 +1,16 @@
+[workspace]
+members = [
+  "futures",
+  "futures-core",
+  "futures-channel",
+  "futures-executor",
+  "futures-io",
+  "futures-macro",
+  "futures-sink",
+  "futures-task",
+  "futures-util",
+  "futures-test",
+
+  "examples/functional",
+  "examples/imperative",
+]

@@ -1,0 +1,9 @@
+[package]
+name = "through"
+version = "0.1.0"
+authors = ["Phoenix <kahlo.phoenix@gmail.com>"]
+description = "Mutate data, given a mutable reference, by moving ownership through a function."
+readme = "README.md"
+repository = "https://github.com/gretchenfrage/through"
+categories = ["memory-management"]
+license = "MIT"

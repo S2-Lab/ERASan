@@ -1,0 +1,27 @@
+[package]
+authors = ["Alex Huszagh <ahuszagh@ahuszagh.localdomain>"]
+autobenches = false
+categories = ["data-structures"]
+description = "StackVec: vector-like facade for stack-allocated arrays."
+documentation = "https://docs.rs/stackvector"
+keywords = ["vec", "vector", "stack", "no_std"]
+license = "MIT/Apache-2.0"
+name = "stackvector"
+readme = "README.md"
+repository = "https://github.com/Alexhuszagh/rust-stackvector"
+version = "1.0.8"
+build = "build.rs"
+
+[badges]
+travis-ci = { repository = "Alexhuszagh/rust-stackvector" }
+
+[features]
+default = ["std"]
+# Use the `std` library.
+std = []
+
+[dependencies]
+unreachable = "1.0.0"
+
+[build-dependencies]
+rustc_version = "0.2"

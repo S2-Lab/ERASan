@@ -1,0 +1,54 @@
+[package]
+name = "arc-swap"
+version = "1.0.0"
+authors = ["Michal 'vorner' Vaner <vorner@vorner.cz>"]
+description = "Atomically swappable Arc"
+documentation = "https://docs.rs/arc-swap"
+repository = "https://github.com/vorner/arc-swap"
+readme = "README.md"
+keywords = ["atomic", "Arc"]
+categories = ["data-structures", "memory-management"]
+license = "Apache-2.0/MIT"
+edition = "2018"
+
+[badges]
+travis-ci = { repository = "vorner/arc-swap" }
+appveyor = { repository = "vorner/arc-swap" }
+maintenance = { status = "actively-developed" }
+
+[features]
+# Enable some more, experimental strategies.
+# **These are not part of the stability guarantees** and may be changed, renamed
+# or removed at any time.
+experimental-strategies = []
+# ArcSwapWeak (for std::sycn::Weak) support
+weak = []
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "~0.3"
+crossbeam-utils = "~0.7"
+itertools = "~0.9"
+num_cpus = "~1"
+once_cell = "~1"
+parking_lot = "~0.11"
+proptest = "~0.10"
+
+[profile.bench]
+debug = true
+
+[package.metadata.docs.rs]
+all-features = true
+
+[[bench]]
+name = "background"
+harness = false
+
+[[bench]]
+name = "int-access"
+harness = false
+
+[[bench]]
+name = "track"
+harness = false
