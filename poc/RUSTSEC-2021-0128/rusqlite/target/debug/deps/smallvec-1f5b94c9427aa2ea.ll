@@ -1,0 +1,702 @@
+; ModuleID = 'smallvec.1ceffec8-cgu.0'
+source_filename = "smallvec.1ceffec8-cgu.0"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"core::fmt::Formatter" = type { { i64, i64 }, { i64, i64 }, { {}*, [3 x i64]* }, i32, i32, i8, [7 x i8] }
+%"core::fmt::Opaque" = type {}
+%"core::fmt::Arguments" = type { { [0 x { [0 x i8]*, i64 }]*, i64 }, { i64*, i64 }, { [0 x { i8*, i64* }]*, i64 } }
+%"core::panic::location::Location" = type { { [0 x i8]*, i64 }, i32, i32 }
+%"core::alloc::layout::LayoutError" = type {}
+
+@alloc620 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"invalid args" }>, align 1
+@alloc621 = private unnamed_addr constant <{ i8*, [8 x i8] }> <{ i8* getelementptr inbounds (<{ [12 x i8] }>, <{ [12 x i8] }>* @alloc620, i32 0, i32 0, i32 0), [8 x i8] c"\0C\00\00\00\00\00\00\00" }>, align 8
+@alloc623 = private unnamed_addr constant <{}> zeroinitializer, align 8
+@alloc628 = private unnamed_addr constant <{ [60 x i8] }> <{ [60 x i8] c"/home/dy3199/s2fuzz/scripts/rust/library/core/src/fmt/mod.rs" }>, align 1
+@alloc629 = private unnamed_addr constant <{ i8*, [16 x i8] }> <{ i8* getelementptr inbounds (<{ [60 x i8] }>, <{ [60 x i8] }>* @alloc628, i32 0, i32 0, i32 0), [16 x i8] c"<\00\00\00\00\00\00\00\88\01\00\00\0D\00\00\00" }>, align 8
+@alloc616 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"Allocation error: " }>, align 1
+@alloc617 = private unnamed_addr constant <{ i8*, [8 x i8] }> <{ i8* getelementptr inbounds (<{ [18 x i8] }>, <{ [18 x i8] }>* @alloc616, i32 0, i32 0, i32 0), [8 x i8] c"\12\00\00\00\00\00\00\00" }>, align 8
+@alloc630 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"AllocErr" }>, align 1
+@alloc631 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"layout" }>, align 1
+@vtable.0 = private unnamed_addr constant <{ i8*, [16 x i8], i8* }> <{ i8* bitcast (void ({ i64, i64 }**)* @"_ZN4core3ptr52drop_in_place$LT$$RF$core..alloc..layout..Layout$GT$17h7649afba91eba1d2E" to i8*), [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", i8* bitcast (i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)* @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f8c372174f7412aE" to i8*) }>, align 8, !dbg !0
+@alloc635 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"CapacityOverflow" }>, align 1
+
+; <&T as core::fmt::Debug>::fmt
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f8c372174f7412aE"({ i64, i64 }** align 8 %self, %"core::fmt::Formatter"* align 8 %f) unnamed_addr #0 !dbg !110 {
+start:
+  %f.dbg.spill = alloca %"core::fmt::Formatter"*, align 8
+  %self.dbg.spill = alloca { i64, i64 }**, align 8
+  store { i64, i64 }** %self, { i64, i64 }*** %self.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }*** %self.dbg.spill, metadata !170, metadata !DIExpression()), !dbg !174
+  store %"core::fmt::Formatter"* %f, %"core::fmt::Formatter"** %f.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata %"core::fmt::Formatter"** %f.dbg.spill, metadata !171, metadata !DIExpression()), !dbg !175
+  %_6 = load { i64, i64 }*, { i64, i64 }** %self, align 8, !dbg !176, !nonnull !92, !align !177, !noundef !92
+; call <core::alloc::layout::Layout as core::fmt::Debug>::fmt
+  %0 = call zeroext i1 @"_ZN64_$LT$core..alloc..layout..Layout$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc12c637afa471dbE"({ i64, i64 }* align 8 %_6, %"core::fmt::Formatter"* align 8 %f), !dbg !178
+  br label %bb1, !dbg !178
+
+bb1:                                              ; preds = %start
+  ret i1 %0, !dbg !179
+}
+
+; <&T as core::fmt::Debug>::fmt
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe3aa2feb7d4ebe2E"({ i64, i64 }** align 8 %self, %"core::fmt::Formatter"* align 8 %f) unnamed_addr #0 !dbg !180 {
+start:
+  %f.dbg.spill = alloca %"core::fmt::Formatter"*, align 8
+  %self.dbg.spill = alloca { i64, i64 }**, align 8
+  store { i64, i64 }** %self, { i64, i64 }*** %self.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }*** %self.dbg.spill, metadata !198, metadata !DIExpression()), !dbg !202
+  store %"core::fmt::Formatter"* %f, %"core::fmt::Formatter"** %f.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata %"core::fmt::Formatter"** %f.dbg.spill, metadata !199, metadata !DIExpression()), !dbg !203
+  %_6 = load { i64, i64 }*, { i64, i64 }** %self, align 8, !dbg !204, !nonnull !92, !align !177, !noundef !92
+; call <smallvec::CollectionAllocErr as core::fmt::Debug>::fmt
+  %0 = call zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..fmt..Debug$GT$3fmt17h489b7c542dcca53aE"({ i64, i64 }* align 8 %_6, %"core::fmt::Formatter"* align 8 %f), !dbg !205
+  br label %bb1, !dbg !205
+
+bb1:                                              ; preds = %start
+  ret i1 %0, !dbg !206
+}
+
+; core::fmt::ArgumentV1::new_debug
+; Function Attrs: inlinehint nonlazybind uwtable
+define { i8*, i64* } @_ZN4core3fmt10ArgumentV19new_debug17h0fb27835ee737f50E({ i64, i64 }** align 8 %x) unnamed_addr #1 !dbg !207 {
+start:
+  %0 = alloca %"core::fmt::Opaque"*, align 8
+  %1 = alloca i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)*, align 8
+  %f.dbg.spill = alloca i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)*, align 8
+  %x.dbg.spill1 = alloca { i64, i64 }**, align 8
+  %x.dbg.spill = alloca { i64, i64 }**, align 8
+  %2 = alloca { i8*, i64* }, align 8
+  store { i64, i64 }** %x, { i64, i64 }*** %x.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }*** %x.dbg.spill, metadata !221, metadata !DIExpression()), !dbg !224
+  store { i64, i64 }** %x, { i64, i64 }*** %x.dbg.spill1, align 8, !dbg !225
+  call void @llvm.dbg.declare(metadata { i64, i64 }*** %x.dbg.spill1, metadata !226, metadata !DIExpression()), !dbg !233
+  store i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)* @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe3aa2feb7d4ebe2E", i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)** %f.dbg.spill, align 8, !dbg !235
+  call void @llvm.dbg.declare(metadata i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)** %f.dbg.spill, metadata !232, metadata !DIExpression()), !dbg !233
+  store i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)* bitcast (i1 ({ i64, i64 }**, %"core::fmt::Formatter"*)* @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe3aa2feb7d4ebe2E" to i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)*), i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)** %1, align 8, !dbg !233
+  %_4 = load i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)*, i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)** %1, align 8, !dbg !233, !nonnull !92, !noundef !92
+  br label %bb1, !dbg !233
+
+bb1:                                              ; preds = %start
+  %3 = bitcast { i64, i64 }** %x to %"core::fmt::Opaque"*, !dbg !233
+  store %"core::fmt::Opaque"* %3, %"core::fmt::Opaque"** %0, align 8, !dbg !233
+  %_6 = load %"core::fmt::Opaque"*, %"core::fmt::Opaque"** %0, align 8, !dbg !233, !nonnull !92, !align !236, !noundef !92
+  br label %bb2, !dbg !233
+
+bb2:                                              ; preds = %bb1
+  %4 = bitcast { i8*, i64* }* %2 to %"core::fmt::Opaque"**, !dbg !233
+  store %"core::fmt::Opaque"* %_6, %"core::fmt::Opaque"** %4, align 8, !dbg !233
+  %5 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %2, i32 0, i32 1, !dbg !233
+  %6 = bitcast i64** %5 to i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)**, !dbg !233
+  store i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)* %_4, i1 (%"core::fmt::Opaque"*, %"core::fmt::Formatter"*)** %6, align 8, !dbg !233
+  %7 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %2, i32 0, i32 0, !dbg !237
+  %8 = load i8*, i8** %7, align 8, !dbg !237, !nonnull !92, !align !236, !noundef !92
+  %9 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %2, i32 0, i32 1, !dbg !237
+  %10 = load i64*, i64** %9, align 8, !dbg !237, !nonnull !92, !noundef !92
+  %11 = insertvalue { i8*, i64* } undef, i8* %8, 0, !dbg !237
+  %12 = insertvalue { i8*, i64* } %11, i64* %10, 1, !dbg !237
+  ret { i8*, i64* } %12, !dbg !237
+}
+
+; core::fmt::Arguments::new_v1
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal void @_ZN4core3fmt9Arguments6new_v117hc3402c8f5ecd4f86E(%"core::fmt::Arguments"* sret(%"core::fmt::Arguments") %0, [0 x { [0 x i8]*, i64 }]* align 8 %pieces.0, i64 %pieces.1, [0 x { i8*, i64* }]* align 8 %args.0, i64 %args.1) unnamed_addr #1 !dbg !238 {
+start:
+  %args.dbg.spill = alloca { [0 x { i8*, i64* }]*, i64 }, align 8
+  %pieces.dbg.spill = alloca { [0 x { [0 x i8]*, i64 }]*, i64 }, align 8
+  %_24 = alloca { i64*, i64 }, align 8
+  %_16 = alloca %"core::fmt::Arguments", align 8
+  %_3 = alloca i8, align 1
+  %1 = getelementptr inbounds { [0 x { [0 x i8]*, i64 }]*, i64 }, { [0 x { [0 x i8]*, i64 }]*, i64 }* %pieces.dbg.spill, i32 0, i32 0
+  store [0 x { [0 x i8]*, i64 }]* %pieces.0, [0 x { [0 x i8]*, i64 }]** %1, align 8
+  %2 = getelementptr inbounds { [0 x { [0 x i8]*, i64 }]*, i64 }, { [0 x { [0 x i8]*, i64 }]*, i64 }* %pieces.dbg.spill, i32 0, i32 1
+  store i64 %pieces.1, i64* %2, align 8
+  call void @llvm.dbg.declare(metadata { [0 x { [0 x i8]*, i64 }]*, i64 }* %pieces.dbg.spill, metadata !306, metadata !DIExpression()), !dbg !308
+  %3 = getelementptr inbounds { [0 x { i8*, i64* }]*, i64 }, { [0 x { i8*, i64* }]*, i64 }* %args.dbg.spill, i32 0, i32 0
+  store [0 x { i8*, i64* }]* %args.0, [0 x { i8*, i64* }]** %3, align 8
+  %4 = getelementptr inbounds { [0 x { i8*, i64* }]*, i64 }, { [0 x { i8*, i64* }]*, i64 }* %args.dbg.spill, i32 0, i32 1
+  store i64 %args.1, i64* %4, align 8
+  call void @llvm.dbg.declare(metadata { [0 x { i8*, i64* }]*, i64 }* %args.dbg.spill, metadata !307, metadata !DIExpression()), !dbg !309
+  %_4 = icmp ult i64 %pieces.1, %args.1, !dbg !310
+  br i1 %_4, label %bb1, label %bb2, !dbg !310
+
+bb2:                                              ; preds = %start
+  %_12 = add i64 %args.1, 1, !dbg !311
+  %_9 = icmp ugt i64 %pieces.1, %_12, !dbg !312
+  %5 = zext i1 %_9 to i8, !dbg !310
+  store i8 %5, i8* %_3, align 1, !dbg !310
+  br label %bb3, !dbg !310
+
+bb1:                                              ; preds = %start
+  store i8 1, i8* %_3, align 1, !dbg !310
+  br label %bb3, !dbg !310
+
+bb3:                                              ; preds = %bb2, %bb1
+  %6 = load i8, i8* %_3, align 1, !dbg !310, !range !313, !noundef !92
+  %7 = trunc i8 %6 to i1, !dbg !310
+  br i1 %7, label %bb4, label %bb6, !dbg !310
+
+bb6:                                              ; preds = %bb3
+  %8 = bitcast { i64*, i64 }* %_24 to {}**, !dbg !314
+  store {}* null, {}** %8, align 8, !dbg !314
+  %9 = bitcast %"core::fmt::Arguments"* %0 to { [0 x { [0 x i8]*, i64 }]*, i64 }*, !dbg !315
+  %10 = getelementptr inbounds { [0 x { [0 x i8]*, i64 }]*, i64 }, { [0 x { [0 x i8]*, i64 }]*, i64 }* %9, i32 0, i32 0, !dbg !315
+  store [0 x { [0 x i8]*, i64 }]* %pieces.0, [0 x { [0 x i8]*, i64 }]** %10, align 8, !dbg !315
+  %11 = getelementptr inbounds { [0 x { [0 x i8]*, i64 }]*, i64 }, { [0 x { [0 x i8]*, i64 }]*, i64 }* %9, i32 0, i32 1, !dbg !315
+  store i64 %pieces.1, i64* %11, align 8, !dbg !315
+  %12 = getelementptr inbounds %"core::fmt::Arguments", %"core::fmt::Arguments"* %0, i32 0, i32 1, !dbg !315
+  %13 = getelementptr inbounds { i64*, i64 }, { i64*, i64 }* %_24, i32 0, i32 0, !dbg !315
+  %14 = load i64*, i64** %13, align 8, !dbg !315, !align !177
+  %15 = getelementptr inbounds { i64*, i64 }, { i64*, i64 }* %_24, i32 0, i32 1, !dbg !315
+  %16 = load i64, i64* %15, align 8, !dbg !315
+  %17 = getelementptr inbounds { i64*, i64 }, { i64*, i64 }* %12, i32 0, i32 0, !dbg !315
+  store i64* %14, i64** %17, align 8, !dbg !315
+  %18 = getelementptr inbounds { i64*, i64 }, { i64*, i64 }* %12, i32 0, i32 1, !dbg !315
+  store i64 %16, i64* %18, align 8, !dbg !315
+  %19 = getelementptr inbounds %"core::fmt::Arguments", %"core::fmt::Arguments"* %0, i32 0, i32 2, !dbg !315
+  %20 = getelementptr inbounds { [0 x { i8*, i64* }]*, i64 }, { [0 x { i8*, i64* }]*, i64 }* %19, i32 0, i32 0, !dbg !315
+  store [0 x { i8*, i64* }]* %args.0, [0 x { i8*, i64* }]** %20, align 8, !dbg !315
+  %21 = getelementptr inbounds { [0 x { i8*, i64* }]*, i64 }, { [0 x { i8*, i64* }]*, i64 }* %19, i32 0, i32 1, !dbg !315
+  store i64 %args.1, i64* %21, align 8, !dbg !315
+  ret void, !dbg !316
+
+bb4:                                              ; preds = %bb3
+; call core::fmt::Arguments::new_v1
+  call void @_ZN4core3fmt9Arguments6new_v117hc3402c8f5ecd4f86E(%"core::fmt::Arguments"* sret(%"core::fmt::Arguments") %_16, [0 x { [0 x i8]*, i64 }]* align 8 bitcast (<{ i8*, [8 x i8] }>* @alloc621 to [0 x { [0 x i8]*, i64 }]*), i64 1, [0 x { i8*, i64* }]* align 8 bitcast (<{}>* @alloc623 to [0 x { i8*, i64* }]*), i64 0), !dbg !317
+  br label %bb5, !dbg !317
+
+bb5:                                              ; preds = %bb4
+; call core::panicking::panic_fmt
+  call void @_ZN4core9panicking9panic_fmt17h8b6ce72891ae5e4fE(%"core::fmt::Arguments"* %_16, %"core::panic::location::Location"* align 8 bitcast (<{ i8*, [16 x i8] }>* @alloc629 to %"core::panic::location::Location"*)) #4, !dbg !317
+  unreachable, !dbg !317
+}
+
+; core::ptr::drop_in_place<&core::alloc::layout::Layout>
+; Function Attrs: inlinehint nonlazybind uwtable
+define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$core..alloc..layout..Layout$GT$17h7649afba91eba1d2E"({ i64, i64 }** %_1) unnamed_addr #1 !dbg !318 {
+start:
+  %_1.dbg.spill = alloca { i64, i64 }**, align 8
+  store { i64, i64 }** %_1, { i64, i64 }*** %_1.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }*** %_1.dbg.spill, metadata !325, metadata !DIExpression()), !dbg !328
+  ret void, !dbg !328
+}
+
+; <smallvec::CollectionAllocErr as core::fmt::Display>::fmt
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN67_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..fmt..Display$GT$3fmt17h9be2d7b9ca90afa8E"({ i64, i64 }* align 8 %0, %"core::fmt::Formatter"* align 8 %f) unnamed_addr #0 !dbg !329 {
+start:
+  %result.dbg.spill = alloca i8, align 1
+  %f.dbg.spill = alloca %"core::fmt::Formatter"*, align 8
+  %_11 = alloca [1 x { i8*, i64* }], align 8
+  %_4 = alloca %"core::fmt::Arguments", align 8
+  %self = alloca { i64, i64 }*, align 8
+  store { i64, i64 }* %0, { i64, i64 }** %self, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }** %self, metadata !335, metadata !DIExpression()), !dbg !341
+  store %"core::fmt::Formatter"* %f, %"core::fmt::Formatter"** %f.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata %"core::fmt::Formatter"** %f.dbg.spill, metadata !336, metadata !DIExpression()), !dbg !342
+; call core::fmt::ArgumentV1::new_debug
+  %1 = call { i8*, i64* } @_ZN4core3fmt10ArgumentV19new_debug17h0fb27835ee737f50E({ i64, i64 }** align 8 %self), !dbg !343
+  %_12.0 = extractvalue { i8*, i64* } %1, 0, !dbg !343
+  %_12.1 = extractvalue { i8*, i64* } %1, 1, !dbg !343
+  br label %bb1, !dbg !343
+
+bb1:                                              ; preds = %start
+  %2 = bitcast [1 x { i8*, i64* }]* %_11 to { i8*, i64* }*, !dbg !343
+  %3 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %2, i32 0, i32 0, !dbg !343
+  store i8* %_12.0, i8** %3, align 8, !dbg !343
+  %4 = getelementptr inbounds { i8*, i64* }, { i8*, i64* }* %2, i32 0, i32 1, !dbg !343
+  store i64* %_12.1, i64** %4, align 8, !dbg !343
+  %_8.0 = bitcast [1 x { i8*, i64* }]* %_11 to [0 x { i8*, i64* }]*, !dbg !343
+; call core::fmt::Arguments::new_v1
+  call void @_ZN4core3fmt9Arguments6new_v117hc3402c8f5ecd4f86E(%"core::fmt::Arguments"* sret(%"core::fmt::Arguments") %_4, [0 x { [0 x i8]*, i64 }]* align 8 bitcast (<{ i8*, [8 x i8] }>* @alloc617 to [0 x { [0 x i8]*, i64 }]*), i64 1, [0 x { i8*, i64* }]* align 8 %_8.0, i64 1), !dbg !343
+  br label %bb2, !dbg !343
+
+bb2:                                              ; preds = %bb1
+; call core::fmt::Formatter::write_fmt
+  %result = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17he08a9e8bf138b5a9E(%"core::fmt::Formatter"* align 8 %f, %"core::fmt::Arguments"* %_4), !dbg !343
+  %5 = zext i1 %result to i8, !dbg !343
+  store i8 %5, i8* %result.dbg.spill, align 1, !dbg !343
+  call void @llvm.dbg.declare(metadata i8* %result.dbg.spill, metadata !337, metadata !DIExpression()), !dbg !344
+  br label %bb3, !dbg !343
+
+bb3:                                              ; preds = %bb2
+  ret i1 %result, !dbg !345
+}
+
+; <smallvec::CollectionAllocErr as core::convert::From<core::alloc::layout::LayoutError>>::from
+; Function Attrs: nonlazybind uwtable
+define { i64, i64 } @"_ZN108_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..convert..From$LT$core..alloc..layout..LayoutError$GT$$GT$4from17h5b4265b8ef164719E"() unnamed_addr #0 !dbg !346 {
+start:
+  %_1.dbg.spill = alloca %"core::alloc::layout::LayoutError", align 1
+  %0 = alloca { i64, i64 }, align 8
+  call void @llvm.dbg.declare(metadata %"core::alloc::layout::LayoutError"* %_1.dbg.spill, metadata !352, metadata !DIExpression()), !dbg !353
+  %1 = getelementptr inbounds { i64, i64 }, { i64, i64 }* %0, i32 0, i32 1, !dbg !354
+  store i64 0, i64* %1, align 8, !dbg !354
+  %2 = getelementptr inbounds { i64, i64 }, { i64, i64 }* %0, i32 0, i32 0, !dbg !355
+  %3 = load i64, i64* %2, align 8, !dbg !355
+  %4 = getelementptr inbounds { i64, i64 }, { i64, i64 }* %0, i32 0, i32 1, !dbg !355
+  %5 = load i64, i64* %4, align 8, !dbg !355, !range !356, !noundef !92
+  %6 = insertvalue { i64, i64 } undef, i64 %3, 0, !dbg !355
+  %7 = insertvalue { i64, i64 } %6, i64 %5, 1, !dbg !355
+  ret { i64, i64 } %7, !dbg !355
+}
+
+; <smallvec::CollectionAllocErr as core::fmt::Debug>::fmt
+; Function Attrs: nonlazybind uwtable
+define zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..fmt..Debug$GT$3fmt17h489b7c542dcca53aE"({ i64, i64 }* align 8 %self, %"core::fmt::Formatter"* align 8 %f) unnamed_addr #0 !dbg !357 {
+start:
+  %__self_0.dbg.spill = alloca { i64, i64 }*, align 8
+  %f.dbg.spill = alloca %"core::fmt::Formatter"*, align 8
+  %self.dbg.spill = alloca { i64, i64 }*, align 8
+  %_18 = alloca { i64, i64 }*, align 8
+  %_3 = alloca i64*, align 8
+  %0 = alloca i8, align 1
+  store { i64, i64 }* %self, { i64, i64 }** %self.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata { i64, i64 }** %self.dbg.spill, metadata !360, metadata !DIExpression()), !dbg !364
+  store %"core::fmt::Formatter"* %f, %"core::fmt::Formatter"** %f.dbg.spill, align 8
+  call void @llvm.dbg.declare(metadata %"core::fmt::Formatter"** %f.dbg.spill, metadata !361, metadata !DIExpression()), !dbg !364
+  %1 = bitcast i64** %_3 to { i64, i64 }**, !dbg !364
+  store { i64, i64 }* %self, { i64, i64 }** %1, align 8, !dbg !364
+  %2 = bitcast i64** %_3 to { i64, i64 }**, !dbg !364
+  %_19 = load { i64, i64 }*, { i64, i64 }** %2, align 8, !dbg !364, !nonnull !92, !align !177, !noundef !92
+  %3 = getelementptr inbounds { i64, i64 }, { i64, i64 }* %_19, i32 0, i32 1, !dbg !364
+  %4 = load i64, i64* %3, align 8, !dbg !364, !range !356, !noundef !92
+  %5 = icmp eq i64 %4, 0, !dbg !364
+  %_5 = select i1 %5, i64 0, i64 1, !dbg !364
+  switch i64 %_5, label %bb2 [
+    i64 0, label %bb3
+    i64 1, label %bb1
+  ], !dbg !364
+
+bb2:                                              ; preds = %start
+  unreachable, !dbg !364
+
+bb3:                                              ; preds = %start
+; call core::fmt::Formatter::write_str
+  %6 = call zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb00d70fb4fa96d5eE(%"core::fmt::Formatter"* align 8 %f, [0 x i8]* align 1 bitcast (<{ [16 x i8] }>* @alloc635 to [0 x i8]*), i64 16), !dbg !364
+  %7 = zext i1 %6 to i8, !dbg !364
+  store i8 %7, i8* %0, align 1, !dbg !364
+  br label %bb4, !dbg !364
+
+bb1:                                              ; preds = %start
+  %8 = bitcast i64** %_3 to { i64, i64 }**, !dbg !365
+  %_20 = load { i64, i64 }*, { i64, i64 }** %8, align 8, !dbg !365, !nonnull !92, !align !177, !noundef !92
+  store { i64, i64 }* %_20, { i64, i64 }** %__self_0.dbg.spill, align 8, !dbg !365
+  call void @llvm.dbg.declare(metadata { i64, i64 }** %__self_0.dbg.spill, metadata !362, metadata !DIExpression()), !dbg !366
+  store { i64, i64 }* %_20, { i64, i64 }** %_18, align 8, !dbg !366
+  %_15.0 = bitcast { i64, i64 }** %_18 to {}*, !dbg !366
+; call core::fmt::Formatter::debug_struct_field1_finish
+  %9 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17h9a0df61f3a1f2b54E(%"core::fmt::Formatter"* align 8 %f, [0 x i8]* align 1 bitcast (<{ [8 x i8] }>* @alloc630 to [0 x i8]*), i64 8, [0 x i8]* align 1 bitcast (<{ [6 x i8] }>* @alloc631 to [0 x i8]*), i64 6, {}* align 1 %_15.0, [3 x i64]* align 8 bitcast (<{ i8*, [16 x i8], i8* }>* @vtable.0 to [3 x i64]*)), !dbg !367
+  %10 = zext i1 %9 to i8, !dbg !367
+  store i8 %10, i8* %0, align 1, !dbg !367
+  br label %bb4, !dbg !367
+
+bb4:                                              ; preds = %bb3, %bb1
+  %11 = load i8, i8* %0, align 1, !dbg !368, !range !313, !noundef !92
+  %12 = trunc i8 %11 to i1, !dbg !368
+  ret i1 %12, !dbg !368
+}
+
+; Function Attrs: nofree nosync nounwind readnone speculatable willreturn
+declare void @llvm.dbg.declare(metadata, metadata, metadata) #2
+
+; <core::alloc::layout::Layout as core::fmt::Debug>::fmt
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @"_ZN64_$LT$core..alloc..layout..Layout$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc12c637afa471dbE"({ i64, i64 }* align 8, %"core::fmt::Formatter"* align 8) unnamed_addr #0
+
+; core::panicking::panic_fmt
+; Function Attrs: cold noinline noreturn nonlazybind uwtable
+declare void @_ZN4core9panicking9panic_fmt17h8b6ce72891ae5e4fE(%"core::fmt::Arguments"*, %"core::panic::location::Location"* align 8) unnamed_addr #3
+
+; core::fmt::Formatter::write_fmt
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17he08a9e8bf138b5a9E(%"core::fmt::Formatter"* align 8, %"core::fmt::Arguments"*) unnamed_addr #0
+
+; core::fmt::Formatter::debug_struct_field1_finish
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17h9a0df61f3a1f2b54E(%"core::fmt::Formatter"* align 8, [0 x i8]* align 1, i64, [0 x i8]* align 1, i64, {}* align 1, [3 x i64]* align 8) unnamed_addr #0
+
+; core::fmt::Formatter::write_str
+; Function Attrs: nonlazybind uwtable
+declare zeroext i1 @_ZN4core3fmt9Formatter9write_str17hb00d70fb4fa96d5eE(%"core::fmt::Formatter"* align 8, [0 x i8]* align 1, i64) unnamed_addr #0
+
+attributes #0 = { nonlazybind uwtable "probe-stack"="__rust_probestack" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="__rust_probestack" "target-cpu"="x86-64" }
+attributes #2 = { nofree nosync nounwind readnone speculatable willreturn }
+attributes #3 = { cold noinline noreturn nonlazybind uwtable "probe-stack"="__rust_probestack" "target-cpu"="x86-64" }
+attributes #4 = { noreturn }
+
+!llvm.module.flags = !{!93, !94, !95}
+!llvm.dbg.cu = !{!96}
+
+!0 = !DIGlobalVariableExpression(var: !1, expr: !DIExpression())
+!1 = distinct !DIGlobalVariable(name: "<&core::alloc::layout::Layout as core::fmt::Debug>::{vtable}", scope: null, file: !2, type: !3, isLocal: true, isDefinition: true)
+!2 = !DIFile(filename: "<unknown>", directory: "")
+!3 = !DICompositeType(tag: DW_TAG_structure_type, name: "<&core::alloc::layout::Layout as core::fmt::Debug>::{vtable_type}", file: !2, size: 256, align: 64, flags: DIFlagArtificial, elements: !4, vtableHolder: !12, templateParams: !92, identifier: "489031967d31576a70a1bf2653966b7a")
+!4 = !{!5, !8, !10, !11}
+!5 = !DIDerivedType(tag: DW_TAG_member, name: "drop_in_place", scope: !3, file: !2, baseType: !6, size: 64, align: 64)
+!6 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "*const ()", baseType: !7, size: 64, align: 64, dwarfAddressSpace: 0)
+!7 = !DIBasicType(name: "()", encoding: DW_ATE_unsigned)
+!8 = !DIDerivedType(tag: DW_TAG_member, name: "size", scope: !3, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!9 = !DIBasicType(name: "usize", size: 64, encoding: DW_ATE_unsigned)
+!10 = !DIDerivedType(tag: DW_TAG_member, name: "align", scope: !3, file: !2, baseType: !9, size: 64, align: 64, offset: 128)
+!11 = !DIDerivedType(tag: DW_TAG_member, name: "__method3", scope: !3, file: !2, baseType: !6, size: 64, align: 64, offset: 192)
+!12 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&core::alloc::layout::Layout", baseType: !13, size: 64, align: 64, dwarfAddressSpace: 0)
+!13 = !DICompositeType(tag: DW_TAG_structure_type, name: "Layout", scope: !14, file: !2, size: 128, align: 64, elements: !17, templateParams: !92, identifier: "5dec4dbe9669c628ec37ecb63ce77828")
+!14 = !DINamespace(name: "layout", scope: !15)
+!15 = !DINamespace(name: "alloc", scope: !16)
+!16 = !DINamespace(name: "core", scope: null)
+!17 = !{!18, !19}
+!18 = !DIDerivedType(tag: DW_TAG_member, name: "size", scope: !13, file: !2, baseType: !9, size: 64, align: 64)
+!19 = !DIDerivedType(tag: DW_TAG_member, name: "align", scope: !13, file: !2, baseType: !20, size: 64, align: 64, offset: 64)
+!20 = !DICompositeType(tag: DW_TAG_structure_type, name: "ValidAlign", scope: !21, file: !2, size: 64, align: 64, elements: !23, templateParams: !92, identifier: "b0b159fe5bbc2fcc69e3933af20e4156")
+!21 = !DINamespace(name: "valid_align", scope: !22)
+!22 = !DINamespace(name: "mem", scope: !16)
+!23 = !{!24}
+!24 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !20, file: !2, baseType: !25, size: 64, align: 64)
+!25 = !DICompositeType(tag: DW_TAG_enumeration_type, name: "ValidAlignEnum64", scope: !21, file: !2, baseType: !26, size: 64, align: 64, flags: DIFlagEnumClass, elements: !27)
+!26 = !DIBasicType(name: "u64", size: 64, encoding: DW_ATE_unsigned)
+!27 = !{!28, !29, !30, !31, !32, !33, !34, !35, !36, !37, !38, !39, !40, !41, !42, !43, !44, !45, !46, !47, !48, !49, !50, !51, !52, !53, !54, !55, !56, !57, !58, !59, !60, !61, !62, !63, !64, !65, !66, !67, !68, !69, !70, !71, !72, !73, !74, !75, !76, !77, !78, !79, !80, !81, !82, !83, !84, !85, !86, !87, !88, !89, !90, !91}
+!28 = !DIEnumerator(name: "_Align1Shl0", value: 1, isUnsigned: true)
+!29 = !DIEnumerator(name: "_Align1Shl1", value: 2, isUnsigned: true)
+!30 = !DIEnumerator(name: "_Align1Shl2", value: 4, isUnsigned: true)
+!31 = !DIEnumerator(name: "_Align1Shl3", value: 8, isUnsigned: true)
+!32 = !DIEnumerator(name: "_Align1Shl4", value: 16, isUnsigned: true)
+!33 = !DIEnumerator(name: "_Align1Shl5", value: 32, isUnsigned: true)
+!34 = !DIEnumerator(name: "_Align1Shl6", value: 64, isUnsigned: true)
+!35 = !DIEnumerator(name: "_Align1Shl7", value: 128, isUnsigned: true)
+!36 = !DIEnumerator(name: "_Align1Shl8", value: 256, isUnsigned: true)
+!37 = !DIEnumerator(name: "_Align1Shl9", value: 512, isUnsigned: true)
+!38 = !DIEnumerator(name: "_Align1Shl10", value: 1024, isUnsigned: true)
+!39 = !DIEnumerator(name: "_Align1Shl11", value: 2048, isUnsigned: true)
+!40 = !DIEnumerator(name: "_Align1Shl12", value: 4096, isUnsigned: true)
+!41 = !DIEnumerator(name: "_Align1Shl13", value: 8192, isUnsigned: true)
+!42 = !DIEnumerator(name: "_Align1Shl14", value: 16384, isUnsigned: true)
+!43 = !DIEnumerator(name: "_Align1Shl15", value: 32768, isUnsigned: true)
+!44 = !DIEnumerator(name: "_Align1Shl16", value: 65536, isUnsigned: true)
+!45 = !DIEnumerator(name: "_Align1Shl17", value: 131072, isUnsigned: true)
+!46 = !DIEnumerator(name: "_Align1Shl18", value: 262144, isUnsigned: true)
+!47 = !DIEnumerator(name: "_Align1Shl19", value: 524288, isUnsigned: true)
+!48 = !DIEnumerator(name: "_Align1Shl20", value: 1048576, isUnsigned: true)
+!49 = !DIEnumerator(name: "_Align1Shl21", value: 2097152, isUnsigned: true)
+!50 = !DIEnumerator(name: "_Align1Shl22", value: 4194304, isUnsigned: true)
+!51 = !DIEnumerator(name: "_Align1Shl23", value: 8388608, isUnsigned: true)
+!52 = !DIEnumerator(name: "_Align1Shl24", value: 16777216, isUnsigned: true)
+!53 = !DIEnumerator(name: "_Align1Shl25", value: 33554432, isUnsigned: true)
+!54 = !DIEnumerator(name: "_Align1Shl26", value: 67108864, isUnsigned: true)
+!55 = !DIEnumerator(name: "_Align1Shl27", value: 134217728, isUnsigned: true)
+!56 = !DIEnumerator(name: "_Align1Shl28", value: 268435456, isUnsigned: true)
+!57 = !DIEnumerator(name: "_Align1Shl29", value: 536870912, isUnsigned: true)
+!58 = !DIEnumerator(name: "_Align1Shl30", value: 1073741824, isUnsigned: true)
+!59 = !DIEnumerator(name: "_Align1Shl31", value: 2147483648, isUnsigned: true)
+!60 = !DIEnumerator(name: "_Align1Shl32", value: 4294967296, isUnsigned: true)
+!61 = !DIEnumerator(name: "_Align1Shl33", value: 8589934592, isUnsigned: true)
+!62 = !DIEnumerator(name: "_Align1Shl34", value: 17179869184, isUnsigned: true)
+!63 = !DIEnumerator(name: "_Align1Shl35", value: 34359738368, isUnsigned: true)
+!64 = !DIEnumerator(name: "_Align1Shl36", value: 68719476736, isUnsigned: true)
+!65 = !DIEnumerator(name: "_Align1Shl37", value: 137438953472, isUnsigned: true)
+!66 = !DIEnumerator(name: "_Align1Shl38", value: 274877906944, isUnsigned: true)
+!67 = !DIEnumerator(name: "_Align1Shl39", value: 549755813888, isUnsigned: true)
+!68 = !DIEnumerator(name: "_Align1Shl40", value: 1099511627776, isUnsigned: true)
+!69 = !DIEnumerator(name: "_Align1Shl41", value: 2199023255552, isUnsigned: true)
+!70 = !DIEnumerator(name: "_Align1Shl42", value: 4398046511104, isUnsigned: true)
+!71 = !DIEnumerator(name: "_Align1Shl43", value: 8796093022208, isUnsigned: true)
+!72 = !DIEnumerator(name: "_Align1Shl44", value: 17592186044416, isUnsigned: true)
+!73 = !DIEnumerator(name: "_Align1Shl45", value: 35184372088832, isUnsigned: true)
+!74 = !DIEnumerator(name: "_Align1Shl46", value: 70368744177664, isUnsigned: true)
+!75 = !DIEnumerator(name: "_Align1Shl47", value: 140737488355328, isUnsigned: true)
+!76 = !DIEnumerator(name: "_Align1Shl48", value: 281474976710656, isUnsigned: true)
+!77 = !DIEnumerator(name: "_Align1Shl49", value: 562949953421312, isUnsigned: true)
+!78 = !DIEnumerator(name: "_Align1Shl50", value: 1125899906842624, isUnsigned: true)
+!79 = !DIEnumerator(name: "_Align1Shl51", value: 2251799813685248, isUnsigned: true)
+!80 = !DIEnumerator(name: "_Align1Shl52", value: 4503599627370496, isUnsigned: true)
+!81 = !DIEnumerator(name: "_Align1Shl53", value: 9007199254740992, isUnsigned: true)
+!82 = !DIEnumerator(name: "_Align1Shl54", value: 18014398509481984, isUnsigned: true)
+!83 = !DIEnumerator(name: "_Align1Shl55", value: 36028797018963968, isUnsigned: true)
+!84 = !DIEnumerator(name: "_Align1Shl56", value: 72057594037927936, isUnsigned: true)
+!85 = !DIEnumerator(name: "_Align1Shl57", value: 144115188075855872, isUnsigned: true)
+!86 = !DIEnumerator(name: "_Align1Shl58", value: 288230376151711744, isUnsigned: true)
+!87 = !DIEnumerator(name: "_Align1Shl59", value: 576460752303423488, isUnsigned: true)
+!88 = !DIEnumerator(name: "_Align1Shl60", value: 1152921504606846976, isUnsigned: true)
+!89 = !DIEnumerator(name: "_Align1Shl61", value: 2305843009213693952, isUnsigned: true)
+!90 = !DIEnumerator(name: "_Align1Shl62", value: 4611686018427387904, isUnsigned: true)
+!91 = !DIEnumerator(name: "_Align1Shl63", value: 9223372036854775808, isUnsigned: true)
+!92 = !{}
+!93 = !{i32 7, !"PIC Level", i32 2}
+!94 = !{i32 2, !"RtLibUseGOT", i32 1}
+!95 = !{i32 2, !"Debug Info Version", i32 3}
+!96 = distinct !DICompileUnit(language: DW_LANG_Rust, file: !97, producer: "clang LLVM (rustc version 1.64.0-dev)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !98, globals: !109)
+!97 = !DIFile(filename: "/home/dy3199/.cargo/registry/src/github.com-1ecc6299db9ec823/smallvec-1.13.1/src/lib.rs/@/smallvec.1ceffec8-cgu.0", directory: "/home/dy3199/.cargo/registry/src/github.com-1ecc6299db9ec823/smallvec-1.13.1")
+!98 = !{!25, !99}
+!99 = !DICompositeType(tag: DW_TAG_enumeration_type, name: "Alignment", scope: !100, file: !2, baseType: !103, size: 8, align: 8, flags: DIFlagEnumClass, elements: !104)
+!100 = !DINamespace(name: "v1", scope: !101)
+!101 = !DINamespace(name: "rt", scope: !102)
+!102 = !DINamespace(name: "fmt", scope: !16)
+!103 = !DIBasicType(name: "u8", size: 8, encoding: DW_ATE_unsigned)
+!104 = !{!105, !106, !107, !108}
+!105 = !DIEnumerator(name: "Left", value: 0, isUnsigned: true)
+!106 = !DIEnumerator(name: "Right", value: 1, isUnsigned: true)
+!107 = !DIEnumerator(name: "Center", value: 2, isUnsigned: true)
+!108 = !DIEnumerator(name: "Unknown", value: 3, isUnsigned: true)
+!109 = !{!0}
+!110 = distinct !DISubprogram(name: "fmt<core::alloc::layout::Layout>", linkageName: "_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f8c372174f7412aE", scope: !112, file: !111, line: 2361, type: !113, scopeLine: 2361, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !172, retainedNodes: !169)
+!111 = !DIFile(filename: "/home/dy3199/s2fuzz/scripts/rust/library/core/src/fmt/mod.rs", directory: "", checksumkind: CSK_MD5, checksum: "c5de8437ceab25c34a962d42d2628f53")
+!112 = !DINamespace(name: "{impl#59}", scope: !102)
+!113 = !DISubroutineType(types: !114)
+!114 = !{!115, !133, !134}
+!115 = !DICompositeType(tag: DW_TAG_structure_type, name: "Result<(), core::fmt::Error>", scope: !116, file: !2, size: 8, align: 8, elements: !117, templateParams: !92, identifier: "447757be4c16082e69889932eb17f9c")
+!116 = !DINamespace(name: "result", scope: !16)
+!117 = !{!118}
+!118 = !DICompositeType(tag: DW_TAG_variant_part, scope: !115, file: !2, size: 8, align: 8, elements: !119, templateParams: !92, identifier: "96c807d207af80b29492385694908cd3", discriminator: !132)
+!119 = !{!120, !128}
+!120 = !DIDerivedType(tag: DW_TAG_member, name: "Ok", scope: !118, file: !2, baseType: !121, size: 8, align: 8, extraData: i64 0)
+!121 = !DICompositeType(tag: DW_TAG_structure_type, name: "Ok", scope: !115, file: !2, size: 8, align: 8, elements: !122, templateParams: !124, identifier: "68fc9cadc38fd89dc5314147fe1c04c5")
+!122 = !{!123}
+!123 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !121, file: !2, baseType: !7, align: 8, offset: 8)
+!124 = !{!125, !126}
+!125 = !DITemplateTypeParameter(name: "T", type: !7)
+!126 = !DITemplateTypeParameter(name: "E", type: !127)
+!127 = !DICompositeType(tag: DW_TAG_structure_type, name: "Error", scope: !102, file: !2, align: 8, elements: !92, identifier: "1311c183d6f2d58f3dad194adbe49b3a")
+!128 = !DIDerivedType(tag: DW_TAG_member, name: "Err", scope: !118, file: !2, baseType: !129, size: 8, align: 8, extraData: i64 1)
+!129 = !DICompositeType(tag: DW_TAG_structure_type, name: "Err", scope: !115, file: !2, size: 8, align: 8, elements: !130, templateParams: !124, identifier: "c8f00e71d7b7aec3720e840d9348dce6")
+!130 = !{!131}
+!131 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !129, file: !2, baseType: !127, align: 8, offset: 8)
+!132 = !DIDerivedType(tag: DW_TAG_member, scope: !115, file: !2, baseType: !103, size: 8, align: 8, flags: DIFlagArtificial)
+!133 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&&core::alloc::layout::Layout", baseType: !12, size: 64, align: 64, dwarfAddressSpace: 0)
+!134 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&mut core::fmt::Formatter", baseType: !135, size: 64, align: 64, dwarfAddressSpace: 0)
+!135 = !DICompositeType(tag: DW_TAG_structure_type, name: "Formatter", scope: !102, file: !2, size: 512, align: 64, elements: !136, templateParams: !92, identifier: "97569f54ab5a7c989a71423c5556f817")
+!136 = !{!137, !139, !141, !142, !157, !158}
+!137 = !DIDerivedType(tag: DW_TAG_member, name: "flags", scope: !135, file: !2, baseType: !138, size: 32, align: 32, offset: 384)
+!138 = !DIBasicType(name: "u32", size: 32, encoding: DW_ATE_unsigned)
+!139 = !DIDerivedType(tag: DW_TAG_member, name: "fill", scope: !135, file: !2, baseType: !140, size: 32, align: 32, offset: 416)
+!140 = !DIBasicType(name: "char", size: 32, encoding: DW_ATE_UTF)
+!141 = !DIDerivedType(tag: DW_TAG_member, name: "align", scope: !135, file: !2, baseType: !99, size: 8, align: 8, offset: 448)
+!142 = !DIDerivedType(tag: DW_TAG_member, name: "width", scope: !135, file: !2, baseType: !143, size: 128, align: 64)
+!143 = !DICompositeType(tag: DW_TAG_structure_type, name: "Option<usize>", scope: !144, file: !2, size: 128, align: 64, elements: !145, templateParams: !92, identifier: "b0f0daeaed8f91c87f71a0105100a674")
+!144 = !DINamespace(name: "option", scope: !16)
+!145 = !{!146}
+!146 = !DICompositeType(tag: DW_TAG_variant_part, scope: !143, file: !2, size: 128, align: 64, elements: !147, templateParams: !92, identifier: "eb3caad7987abf801f0cfbe00021cc02", discriminator: !156)
+!147 = !{!148, !152}
+!148 = !DIDerivedType(tag: DW_TAG_member, name: "None", scope: !146, file: !2, baseType: !149, size: 128, align: 64, extraData: i64 0)
+!149 = !DICompositeType(tag: DW_TAG_structure_type, name: "None", scope: !143, file: !2, size: 128, align: 64, elements: !92, templateParams: !150, identifier: "d28a3150cdbae9501568a67346894d10")
+!150 = !{!151}
+!151 = !DITemplateTypeParameter(name: "T", type: !9)
+!152 = !DIDerivedType(tag: DW_TAG_member, name: "Some", scope: !146, file: !2, baseType: !153, size: 128, align: 64, extraData: i64 1)
+!153 = !DICompositeType(tag: DW_TAG_structure_type, name: "Some", scope: !143, file: !2, size: 128, align: 64, elements: !154, templateParams: !150, identifier: "899f8f47ef45b07334d36d49fd9ce901")
+!154 = !{!155}
+!155 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !153, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!156 = !DIDerivedType(tag: DW_TAG_member, scope: !143, file: !2, baseType: !26, size: 64, align: 64, flags: DIFlagArtificial)
+!157 = !DIDerivedType(tag: DW_TAG_member, name: "precision", scope: !135, file: !2, baseType: !143, size: 128, align: 64, offset: 128)
+!158 = !DIDerivedType(tag: DW_TAG_member, name: "buf", scope: !135, file: !2, baseType: !159, size: 128, align: 64, offset: 256)
+!159 = !DICompositeType(tag: DW_TAG_structure_type, name: "&mut dyn core::fmt::Write", file: !2, size: 128, align: 64, elements: !160, templateParams: !92, identifier: "82c572e17c15a0d86f20372e18a95685")
+!160 = !{!161, !164}
+!161 = !DIDerivedType(tag: DW_TAG_member, name: "pointer", scope: !159, file: !2, baseType: !162, size: 64, align: 64)
+!162 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !163, size: 64, align: 64, dwarfAddressSpace: 0)
+!163 = !DICompositeType(tag: DW_TAG_structure_type, name: "dyn core::fmt::Write", file: !2, align: 8, elements: !92, identifier: "9ac45caf5d58874c6d7da3fea362c3ba")
+!164 = !DIDerivedType(tag: DW_TAG_member, name: "vtable", scope: !159, file: !2, baseType: !165, size: 64, align: 64, offset: 64)
+!165 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&[usize; 3]", baseType: !166, size: 64, align: 64, dwarfAddressSpace: 0)
+!166 = !DICompositeType(tag: DW_TAG_array_type, baseType: !9, size: 192, align: 64, elements: !167)
+!167 = !{!168}
+!168 = !DISubrange(count: 3, lowerBound: 0)
+!169 = !{!170, !171}
+!170 = !DILocalVariable(name: "self", arg: 1, scope: !110, file: !111, line: 2361, type: !133)
+!171 = !DILocalVariable(name: "f", arg: 2, scope: !110, file: !111, line: 2361, type: !134)
+!172 = !{!173}
+!173 = !DITemplateTypeParameter(name: "T", type: !13)
+!174 = !DILocation(line: 2361, column: 20, scope: !110)
+!175 = !DILocation(line: 2361, column: 27, scope: !110)
+!176 = !DILocation(line: 2361, column: 71, scope: !110)
+!177 = !{i64 8}
+!178 = !DILocation(line: 2361, column: 62, scope: !110)
+!179 = !DILocation(line: 2361, column: 84, scope: !110)
+!180 = distinct !DISubprogram(name: "fmt<smallvec::CollectionAllocErr>", linkageName: "_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe3aa2feb7d4ebe2E", scope: !112, file: !111, line: 2361, type: !181, scopeLine: 2361, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !200, retainedNodes: !197)
+!181 = !DISubroutineType(types: !182)
+!182 = !{!115, !183, !134}
+!183 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&&smallvec::CollectionAllocErr", baseType: !184, size: 64, align: 64, dwarfAddressSpace: 0)
+!184 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&smallvec::CollectionAllocErr", baseType: !185, size: 64, align: 64, dwarfAddressSpace: 0)
+!185 = !DICompositeType(tag: DW_TAG_structure_type, name: "CollectionAllocErr", scope: !186, file: !2, size: 128, align: 64, elements: !187, templateParams: !92, identifier: "1967594f97b9b77ee196f8ba55f168cd")
+!186 = !DINamespace(name: "smallvec", scope: null)
+!187 = !{!188}
+!188 = !DICompositeType(tag: DW_TAG_variant_part, scope: !185, file: !2, size: 128, align: 64, elements: !189, templateParams: !92, identifier: "24f212fcdc4f728f38a280efb198957f", discriminator: !196)
+!189 = !{!190, !192}
+!190 = !DIDerivedType(tag: DW_TAG_member, name: "CapacityOverflow", scope: !188, file: !2, baseType: !191, size: 128, align: 64, extraData: i64 0)
+!191 = !DICompositeType(tag: DW_TAG_structure_type, name: "CapacityOverflow", scope: !185, file: !2, size: 128, align: 64, elements: !92, identifier: "4d48a779e48be9639de1139656094c90")
+!192 = !DIDerivedType(tag: DW_TAG_member, name: "AllocErr", scope: !188, file: !2, baseType: !193, size: 128, align: 64)
+!193 = !DICompositeType(tag: DW_TAG_structure_type, name: "AllocErr", scope: !185, file: !2, size: 128, align: 64, elements: !194, templateParams: !92, identifier: "2dd861a432e1d52df1ed6b4dcb01fff5")
+!194 = !{!195}
+!195 = !DIDerivedType(tag: DW_TAG_member, name: "layout", scope: !193, file: !2, baseType: !13, size: 128, align: 64)
+!196 = !DIDerivedType(tag: DW_TAG_member, scope: !185, file: !2, baseType: !26, size: 64, align: 64, offset: 64, flags: DIFlagArtificial)
+!197 = !{!198, !199}
+!198 = !DILocalVariable(name: "self", arg: 1, scope: !180, file: !111, line: 2361, type: !183)
+!199 = !DILocalVariable(name: "f", arg: 2, scope: !180, file: !111, line: 2361, type: !134)
+!200 = !{!201}
+!201 = !DITemplateTypeParameter(name: "T", type: !185)
+!202 = !DILocation(line: 2361, column: 20, scope: !180)
+!203 = !DILocation(line: 2361, column: 27, scope: !180)
+!204 = !DILocation(line: 2361, column: 71, scope: !180)
+!205 = !DILocation(line: 2361, column: 62, scope: !180)
+!206 = !DILocation(line: 2361, column: 84, scope: !180)
+!207 = distinct !DISubprogram(name: "new_debug<&smallvec::CollectionAllocErr>", linkageName: "_ZN4core3fmt10ArgumentV19new_debug17h0fb27835ee737f50E", scope: !208, file: !111, line: 318, type: !218, scopeLine: 318, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !222, retainedNodes: !220)
+!208 = !DICompositeType(tag: DW_TAG_structure_type, name: "ArgumentV1", scope: !102, file: !2, size: 128, align: 64, elements: !209, templateParams: !92, identifier: "ee6afbf689c0bee499d5104ca6bc0325")
+!209 = !{!210, !214}
+!210 = !DIDerivedType(tag: DW_TAG_member, name: "value", scope: !208, file: !2, baseType: !211, size: 64, align: 64)
+!211 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "&core::fmt::{extern#0}::Opaque", baseType: !212, size: 64, align: 64, dwarfAddressSpace: 0)
+!212 = !DICompositeType(tag: DW_TAG_structure_type, name: "Opaque", scope: !213, file: !2, align: 8, elements: !92, identifier: "34b15e58e715eb947795ec8f7a6436c0")
+!213 = !DINamespace(name: "{extern#0}", scope: !102)
+!214 = !DIDerivedType(tag: DW_TAG_member, name: "formatter", scope: !208, file: !2, baseType: !215, size: 64, align: 64, offset: 64)
+!215 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "fn(&core::fmt::{extern#0}::Opaque, &mut core::fmt::Formatter) -> core::result::Result<(), core::fmt::Error>", baseType: !216, size: 64, align: 64, dwarfAddressSpace: 0)
+!216 = !DISubroutineType(types: !217)
+!217 = !{!115, !211, !134}
+!218 = !DISubroutineType(types: !219)
+!219 = !{!208, !183}
+!220 = !{!221}
+!221 = !DILocalVariable(name: "x", arg: 1, scope: !207, file: !111, line: 318, type: !183)
+!222 = !{!223}
+!223 = !DITemplateTypeParameter(name: "T", type: !184)
+!224 = !DILocation(line: 318, column: 30, scope: !207)
+!225 = !DILocation(line: 319, column: 23, scope: !207)
+!226 = !DILocalVariable(name: "x", scope: !227, file: !111, line: 319, type: !183, align: 8)
+!227 = distinct !DISubprogram(name: "new<&smallvec::CollectionAllocErr>", linkageName: "_ZN4core3fmt10ArgumentV13new17h52432cef253a3b2eE", scope: !208, file: !111, line: 329, type: !228, scopeLine: 329, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !222, retainedNodes: !231)
+!228 = !DISubroutineType(types: !229)
+!229 = !{!208, !183, !230}
+!230 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "fn(&&smallvec::CollectionAllocErr, &mut core::fmt::Formatter) -> core::result::Result<(), core::fmt::Error>", baseType: !181, size: 64, align: 64, dwarfAddressSpace: 0)
+!231 = !{!226, !232}
+!232 = !DILocalVariable(name: "f", scope: !227, file: !111, line: 319, type: !230, align: 8)
+!233 = !DILocation(line: 319, column: 13, scope: !227, inlinedAt: !234)
+!234 = !DILocation(line: 319, column: 13, scope: !207)
+!235 = !DILocation(line: 319, column: 26, scope: !207)
+!236 = !{i64 1}
+!237 = !DILocation(line: 320, column: 10, scope: !207)
+!238 = distinct !DISubprogram(name: "new_v1", linkageName: "_ZN4core3fmt9Arguments6new_v117hc3402c8f5ecd4f86E", scope: !239, file: !111, line: 390, type: !303, scopeLine: 390, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !92, retainedNodes: !305)
+!239 = !DICompositeType(tag: DW_TAG_structure_type, name: "Arguments", scope: !102, file: !2, size: 384, align: 64, elements: !240, templateParams: !92, identifier: "a0aec1d1ea3bdf613439a5e04a2603cb")
+!240 = !{!241, !252, !297}
+!241 = !DIDerivedType(tag: DW_TAG_member, name: "pieces", scope: !239, file: !2, baseType: !242, size: 128, align: 64)
+!242 = !DICompositeType(tag: DW_TAG_structure_type, name: "&[&str]", file: !2, size: 128, align: 64, elements: !243, templateParams: !92, identifier: "120d786d314e2730a5f45c5e7e56f7d")
+!243 = !{!244, !251}
+!244 = !DIDerivedType(tag: DW_TAG_member, name: "data_ptr", scope: !242, file: !2, baseType: !245, size: 64, align: 64)
+!245 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !246, size: 64, align: 64, dwarfAddressSpace: 0)
+!246 = !DICompositeType(tag: DW_TAG_structure_type, name: "&str", file: !2, size: 128, align: 64, elements: !247, templateParams: !92, identifier: "c603ebb2af364502ef89131a86c6ad9b")
+!247 = !{!248, !250}
+!248 = !DIDerivedType(tag: DW_TAG_member, name: "data_ptr", scope: !246, file: !2, baseType: !249, size: 64, align: 64)
+!249 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !103, size: 64, align: 64, dwarfAddressSpace: 0)
+!250 = !DIDerivedType(tag: DW_TAG_member, name: "length", scope: !246, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!251 = !DIDerivedType(tag: DW_TAG_member, name: "length", scope: !242, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!252 = !DIDerivedType(tag: DW_TAG_member, name: "fmt", scope: !239, file: !2, baseType: !253, size: 128, align: 64, offset: 128)
+!253 = !DICompositeType(tag: DW_TAG_structure_type, name: "Option<&[core::fmt::rt::v1::Argument]>", scope: !144, file: !2, size: 128, align: 64, elements: !254, templateParams: !92, identifier: "b8e2606f2acd3eb73158be541d1813f2")
+!254 = !{!255}
+!255 = !DICompositeType(tag: DW_TAG_variant_part, scope: !253, file: !2, size: 128, align: 64, elements: !256, templateParams: !92, identifier: "61b072b58b5d70caf9daa9abacb5ef58", discriminator: !296)
+!256 = !{!257, !292}
+!257 = !DIDerivedType(tag: DW_TAG_member, name: "None", scope: !255, file: !2, baseType: !258, size: 128, align: 64, extraData: i64 0)
+!258 = !DICompositeType(tag: DW_TAG_structure_type, name: "None", scope: !253, file: !2, size: 128, align: 64, elements: !92, templateParams: !259, identifier: "16848bde27f54ab132d75bd4989ebe65")
+!259 = !{!260}
+!260 = !DITemplateTypeParameter(name: "T", type: !261)
+!261 = !DICompositeType(tag: DW_TAG_structure_type, name: "&[core::fmt::rt::v1::Argument]", file: !2, size: 128, align: 64, elements: !262, templateParams: !92, identifier: "3428bfdd2bbbe5118f643cca84499de0")
+!262 = !{!263, !291}
+!263 = !DIDerivedType(tag: DW_TAG_member, name: "data_ptr", scope: !261, file: !2, baseType: !264, size: 64, align: 64)
+!264 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !265, size: 64, align: 64, dwarfAddressSpace: 0)
+!265 = !DICompositeType(tag: DW_TAG_structure_type, name: "Argument", scope: !100, file: !2, size: 448, align: 64, elements: !266, templateParams: !92, identifier: "83a2ed6cdf3a4449d15fd810f59936b5")
+!266 = !{!267, !268}
+!267 = !DIDerivedType(tag: DW_TAG_member, name: "position", scope: !265, file: !2, baseType: !9, size: 64, align: 64)
+!268 = !DIDerivedType(tag: DW_TAG_member, name: "format", scope: !265, file: !2, baseType: !269, size: 384, align: 64, offset: 64)
+!269 = !DICompositeType(tag: DW_TAG_structure_type, name: "FormatSpec", scope: !100, file: !2, size: 384, align: 64, elements: !270, templateParams: !92, identifier: "b421e176fffabb1a9422c957b838033e")
+!270 = !{!271, !272, !273, !274, !290}
+!271 = !DIDerivedType(tag: DW_TAG_member, name: "fill", scope: !269, file: !2, baseType: !140, size: 32, align: 32, offset: 256)
+!272 = !DIDerivedType(tag: DW_TAG_member, name: "align", scope: !269, file: !2, baseType: !99, size: 8, align: 8, offset: 320)
+!273 = !DIDerivedType(tag: DW_TAG_member, name: "flags", scope: !269, file: !2, baseType: !138, size: 32, align: 32, offset: 288)
+!274 = !DIDerivedType(tag: DW_TAG_member, name: "precision", scope: !269, file: !2, baseType: !275, size: 128, align: 64)
+!275 = !DICompositeType(tag: DW_TAG_structure_type, name: "Count", scope: !100, file: !2, size: 128, align: 64, elements: !276, templateParams: !92, identifier: "2f622710b340f12e25011af1d803f134")
+!276 = !{!277}
+!277 = !DICompositeType(tag: DW_TAG_variant_part, scope: !275, file: !2, size: 128, align: 64, elements: !278, templateParams: !92, identifier: "51002d1103e4bfd0e36408497abeae83", discriminator: !289)
+!278 = !{!279, !283, !287}
+!279 = !DIDerivedType(tag: DW_TAG_member, name: "Is", scope: !277, file: !2, baseType: !280, size: 128, align: 64, extraData: i64 0)
+!280 = !DICompositeType(tag: DW_TAG_structure_type, name: "Is", scope: !275, file: !2, size: 128, align: 64, elements: !281, templateParams: !92, identifier: "1444484c4dce485f1290a5a1787848de")
+!281 = !{!282}
+!282 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !280, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!283 = !DIDerivedType(tag: DW_TAG_member, name: "Param", scope: !277, file: !2, baseType: !284, size: 128, align: 64, extraData: i64 1)
+!284 = !DICompositeType(tag: DW_TAG_structure_type, name: "Param", scope: !275, file: !2, size: 128, align: 64, elements: !285, templateParams: !92, identifier: "e4eec8bef520573b70171b367b1cd2b3")
+!285 = !{!286}
+!286 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !284, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!287 = !DIDerivedType(tag: DW_TAG_member, name: "Implied", scope: !277, file: !2, baseType: !288, size: 128, align: 64, extraData: i64 2)
+!288 = !DICompositeType(tag: DW_TAG_structure_type, name: "Implied", scope: !275, file: !2, size: 128, align: 64, elements: !92, identifier: "884829b33a492cff1c046a186fd09be2")
+!289 = !DIDerivedType(tag: DW_TAG_member, scope: !275, file: !2, baseType: !26, size: 64, align: 64, flags: DIFlagArtificial)
+!290 = !DIDerivedType(tag: DW_TAG_member, name: "width", scope: !269, file: !2, baseType: !275, size: 128, align: 64, offset: 128)
+!291 = !DIDerivedType(tag: DW_TAG_member, name: "length", scope: !261, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!292 = !DIDerivedType(tag: DW_TAG_member, name: "Some", scope: !255, file: !2, baseType: !293, size: 128, align: 64)
+!293 = !DICompositeType(tag: DW_TAG_structure_type, name: "Some", scope: !253, file: !2, size: 128, align: 64, elements: !294, templateParams: !259, identifier: "a9d1aef8652ae3fb1ce43bf5a816afb5")
+!294 = !{!295}
+!295 = !DIDerivedType(tag: DW_TAG_member, name: "__0", scope: !293, file: !2, baseType: !261, size: 128, align: 64)
+!296 = !DIDerivedType(tag: DW_TAG_member, scope: !253, file: !2, baseType: !26, size: 64, align: 64, flags: DIFlagArtificial)
+!297 = !DIDerivedType(tag: DW_TAG_member, name: "args", scope: !239, file: !2, baseType: !298, size: 128, align: 64, offset: 256)
+!298 = !DICompositeType(tag: DW_TAG_structure_type, name: "&[core::fmt::ArgumentV1]", file: !2, size: 128, align: 64, elements: !299, templateParams: !92, identifier: "f71d9e8c03564763165f832ee1a6f5f9")
+!299 = !{!300, !302}
+!300 = !DIDerivedType(tag: DW_TAG_member, name: "data_ptr", scope: !298, file: !2, baseType: !301, size: 64, align: 64)
+!301 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !208, size: 64, align: 64, dwarfAddressSpace: 0)
+!302 = !DIDerivedType(tag: DW_TAG_member, name: "length", scope: !298, file: !2, baseType: !9, size: 64, align: 64, offset: 64)
+!303 = !DISubroutineType(types: !304)
+!304 = !{!239, !242, !298}
+!305 = !{!306, !307}
+!306 = !DILocalVariable(name: "pieces", arg: 1, scope: !238, file: !111, line: 390, type: !242)
+!307 = !DILocalVariable(name: "args", arg: 2, scope: !238, file: !111, line: 390, type: !298)
+!308 = !DILocation(line: 390, column: 25, scope: !238)
+!309 = !DILocation(line: 390, column: 53, scope: !238)
+!310 = !DILocation(line: 391, column: 12, scope: !238)
+!311 = !DILocation(line: 391, column: 56, scope: !238)
+!312 = !DILocation(line: 391, column: 41, scope: !238)
+!313 = !{i8 0, i8 2}
+!314 = !DILocation(line: 394, column: 34, scope: !238)
+!315 = !DILocation(line: 394, column: 9, scope: !238)
+!316 = !DILocation(line: 395, column: 6, scope: !238)
+!317 = !DILocation(line: 392, column: 13, scope: !238)
+!318 = distinct !DISubprogram(name: "drop_in_place<&core::alloc::layout::Layout>", linkageName: "_ZN4core3ptr52drop_in_place$LT$$RF$core..alloc..layout..Layout$GT$17h7649afba91eba1d2E", scope: !320, file: !319, line: 487, type: !321, scopeLine: 487, flags: DIFlagPrototyped, spFlags: DISPFlagLocalToUnit | DISPFlagDefinition, unit: !96, templateParams: !326, retainedNodes: !324)
+!319 = !DIFile(filename: "/home/dy3199/s2fuzz/scripts/rust/library/core/src/ptr/mod.rs", directory: "", checksumkind: CSK_MD5, checksum: "8347f3797ea1142e866e50608b9a2204")
+!320 = !DINamespace(name: "ptr", scope: !16)
+!321 = !DISubroutineType(types: !322)
+!322 = !{null, !323}
+!323 = !DIDerivedType(tag: DW_TAG_pointer_type, name: "*mut &core::alloc::layout::Layout", baseType: !12, size: 64, align: 64, dwarfAddressSpace: 0)
+!324 = !{!325}
+!325 = !DILocalVariable(arg: 1, scope: !318, file: !319, line: 487, type: !323)
+!326 = !{!327}
+!327 = !DITemplateTypeParameter(name: "T", type: !12)
+!328 = !DILocation(line: 487, column: 1, scope: !318)
+!329 = distinct !DISubprogram(name: "fmt", linkageName: "_ZN67_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..fmt..Display$GT$3fmt17h9be2d7b9ca90afa8E", scope: !331, file: !330, line: 306, type: !332, scopeLine: 306, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !96, templateParams: !92, retainedNodes: !334)
+!330 = !DIFile(filename: "src/lib.rs", directory: "/home/dy3199/.cargo/registry/src/github.com-1ecc6299db9ec823/smallvec-1.13.1", checksumkind: CSK_MD5, checksum: "4a7b26795fcd0614246f162dad6c90dd")
+!331 = !DINamespace(name: "{impl#1}", scope: !186)
+!332 = !DISubroutineType(types: !333)
+!333 = !{!115, !184, !134}
+!334 = !{!335, !336, !337}
+!335 = !DILocalVariable(name: "self", arg: 1, scope: !329, file: !330, line: 306, type: !184)
+!336 = !DILocalVariable(name: "f", arg: 2, scope: !329, file: !330, line: 306, type: !134)
+!337 = !DILocalVariable(name: "result", scope: !338, file: !330, line: 307, type: !115, align: 1)
+!338 = !DILexicalBlockFile(scope: !339, file: !330, discriminator: 0)
+!339 = distinct !DILexicalBlock(scope: !329, file: !340, line: 500, column: 9)
+!340 = !DIFile(filename: "/home/dy3199/s2fuzz/scripts/rust/library/core/src/macros/mod.rs", directory: "", checksumkind: CSK_MD5, checksum: "e97a64fac48eb85da734513cc520f31f")
+!341 = !DILocation(line: 306, column: 12, scope: !329)
+!342 = !DILocation(line: 306, column: 19, scope: !329)
+!343 = !DILocation(line: 307, column: 9, scope: !329)
+!344 = !DILocation(line: 307, column: 9, scope: !338)
+!345 = !DILocation(line: 308, column: 6, scope: !329)
+!346 = distinct !DISubprogram(name: "from", linkageName: "_ZN108_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..convert..From$LT$core..alloc..layout..LayoutError$GT$$GT$4from17h5b4265b8ef164719E", scope: !347, file: !330, line: 313, type: !348, scopeLine: 313, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !96, templateParams: !92, retainedNodes: !351)
+!347 = !DINamespace(name: "{impl#2}", scope: !186)
+!348 = !DISubroutineType(types: !349)
+!349 = !{!185, !350}
+!350 = !DICompositeType(tag: DW_TAG_structure_type, name: "LayoutError", scope: !14, file: !2, align: 8, elements: !92, identifier: "43aba19d759edc4678aaeb14177f16ec")
+!351 = !{!352}
+!352 = !DILocalVariable(arg: 1, scope: !346, file: !330, line: 313, type: !350)
+!353 = !DILocation(line: 313, column: 13, scope: !346)
+!354 = !DILocation(line: 314, column: 9, scope: !346)
+!355 = !DILocation(line: 315, column: 6, scope: !346)
+!356 = !{i64 0, i64 -9223372036854775807}
+!357 = distinct !DISubprogram(name: "fmt", linkageName: "_ZN65_$LT$smallvec..CollectionAllocErr$u20$as$u20$core..fmt..Debug$GT$3fmt17h489b7c542dcca53aE", scope: !358, file: !330, line: 294, type: !332, scopeLine: 294, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !96, templateParams: !92, retainedNodes: !359)
+!358 = !DINamespace(name: "{impl#58}", scope: !186)
+!359 = !{!360, !361, !362}
+!360 = !DILocalVariable(name: "self", arg: 1, scope: !357, file: !330, line: 294, type: !184)
+!361 = !DILocalVariable(name: "f", arg: 2, scope: !357, file: !330, line: 294, type: !134)
+!362 = !DILocalVariable(name: "__self_0", scope: !363, file: !330, line: 301, type: !12, align: 8)
+!363 = distinct !DILexicalBlock(scope: !357, file: !330, line: 294, column: 10)
+!364 = !DILocation(line: 294, column: 10, scope: !357)
+!365 = !DILocation(line: 301, column: 9, scope: !357)
+!366 = !DILocation(line: 301, column: 9, scope: !363)
+!367 = !DILocation(line: 294, column: 10, scope: !363)
+!368 = !DILocation(line: 294, column: 15, scope: !357)

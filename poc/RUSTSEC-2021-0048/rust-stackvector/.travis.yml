@@ -1,0 +1,18 @@
+language: rust
+rust:
+  - 1.26.0
+  - nightly
+  - beta
+  - stable
+
+# Bugs in issue 5 on nightly and beta on Travis, not reproducing on a local
+# machine.
+matrix:
+  allow_failures:
+    - rust: nightly
+    - rust: beta
+
+script: |
+  cargo build &&
+  cargo test &&
+  ([ $TRAVIS_RUST_VERSION != nightly ] || cargo check --no-default-features)

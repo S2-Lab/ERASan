@@ -1,0 +1,1 @@
+benchmarks/syn/test/*.ll filter=lfs diff=lfs merge=lfs -text
