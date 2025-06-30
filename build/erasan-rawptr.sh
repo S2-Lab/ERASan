@@ -13,7 +13,7 @@ export LLVM_DIR=$RUST/src/llvm-project/llvm/lib/Transforms/Instrumentation
 # only delete llvm-finished-building for making llvm build fast
 rm $RUST/build/x86_64-unknown-linux-gnu/llvm/llvm-finished-building
 rm $LLVM_DIR/AddressSanitizer.cpp
-cp $WORKING_DIR/ERASan.cpp $LLVM_DIR
+cp $WORKING_DIR/ERASan_Rawptr.cpp $LLVM_DIR
 mv $LLVM_DIR/ERASan_Rawptr.cpp $LLVM_DIR/AddressSanitizer.cpp
 echo "[Finished Changing Setting ERASAN environment]"
 echo "[Now Build Starts]"
